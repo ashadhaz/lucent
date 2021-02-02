@@ -93,7 +93,7 @@ def render_vis(
         for i in tqdm(range(1, max(thresholds) + 1), disable=(not progress)):
             optimizer.zero_grad()
             try:
-                model(transform_f(image_f()))
+                model.encode_image(transform_f(image_f()))
             except RuntimeError as ex:
                 if i == 1:
                     # Only display the warning message
